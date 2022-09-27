@@ -100,7 +100,7 @@ input:active, input:focus {
   outline: none;
 }
 input:invalid {
-  box-shadow:inset 0px 0px 1px rgb(255, 143, 143);
+  box-shadow:inset 0px 0px 2px rgb(255, 0, 0);
   border-radius: 3px;
   transition: ease-in all 0.4s
 }

@@ -48,23 +48,23 @@ const Form = () => {
           <div className={`${count > 2 && "active__line"} progress_line`}></div>
           <div className={`${count > 3 && "active"} progess_block`}>4</div>
         </div>
-        <div class="mt-12">
+        <div className="mt-12">
           <form action="" className='overflow-hidden'>
             <div className="font-fields form-outer">
-              <div style={{marginLeft: marginLeft}} class={`form-field-1 form-page`}>
+              <div style={{marginLeft: marginLeft}} className={`form-field-1 form-page`}>
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>First Name</span>
                 <input 
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   pattern="[a-z]{3,}" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="text" 
                   name="email-1" 
-                  id="" 
+                  id=""
                 />
                 <span className='mb-1 block'>Last Name</span>
                 <input 
-                  tabindex="-1"
+                  tabIndex="-1"
                   pattern="[a-z]{3,}" 
                   className='pl-2 w-full py-2 border border-l-slate-200'
                   type="text"
@@ -74,18 +74,18 @@ const Form = () => {
                 <div className='flex justify-between mt-9'>
                   <button 
                     onClick={increment} 
-                    tabindex="-1" 
+                    tabIndex="-1" 
                     type="button" 
                     className='py-2 btn w-full bg_pink text-xl font-medium text-white rounded'>
                       Next
                   </button>
                 </div>
               </div>
-              <div class="form-field-2 form-page">
+              <div className="form-field-2 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Email Address</span>
                 <input 
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="email" 
@@ -94,7 +94,7 @@ const Form = () => {
                 />
                 <span className='mb-1 block'>Phone Number</span>
                 <input 
-                 tabindex="-1" 
+                 tabIndex="-1" 
                   pattern=".[0-9]{6,}" 
                   className='pl-2 w-full py-2 border border-l-slate-200' 
                   type="phone-1" 
@@ -105,31 +105,31 @@ const Form = () => {
                   <button 
                     onClick={decrement} type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabindex="-1">
+                    tabIndex="-1">
                     Previous
                   </button>
                   <button 
                     onClick={increment} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabindex="-1">
+                    tabIndex="-1">
                     Next
                   </button>
                 </div>
               </div>
-              <div class="form-field-3 form-page">
+              <div className="form-field-3 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
-                <span className='mb-1 block'  tabindex="-1">Date</span>
+                <span className='mb-1 block'  tabIndex="-1">Date</span>
                 <input  
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="date" 
                   name="email-1" 
                   id="" 
                 />
-                  <span className='mb-1 block'  tabindex="-1">Gender</span>
+                  <span className='mb-1 block'  tabIndex="-1">Gender</span>
                   <select  
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   className='pl-2 bg-white w-full py-2 border' 
                   name="" 
                   id=""
@@ -142,23 +142,23 @@ const Form = () => {
                     onClick={decrement} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded' 
-                    tabindex="-1">
+                    tabIndex="-1">
                     Previous
                   </button>
                   <button 
                     onClick={increment} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded' 
-                    tabindex="-1">
+                    tabIndex="-1">
                     Next
                   </button>
                 </div>
               </div>
-              <div class="form-field-4 form-page">
+              <div className="form-field-4 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Username</span>
                 <input 
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="email" 
                   name="email-1" 
@@ -166,7 +166,7 @@ const Form = () => {
                 />
                 <span className='mb-1 block'>Password</span>
                 <input 
-                  tabindex="-1" 
+                  tabIndex="-1" 
                   className='pl-2 w-full py-2 border border-l-slate-200' 
                   type="phone-1" 
                   name="" 
@@ -177,13 +177,13 @@ const Form = () => {
                     onClick={decrement} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabindex="-1">
+                    tabIndex="-1">
                     Previous
                   </button>
                   <button 
                     type="submit" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabindex="-1">
+                    tabIndex="-1">
                     Submit
                   </button>
                 </div>
