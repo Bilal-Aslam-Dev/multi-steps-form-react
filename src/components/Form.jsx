@@ -16,7 +16,7 @@ const Form = () => {
   
   function increment() {
     setCount(prevState => prevState + 1)
-    if (count > 3) {
+    if (count > 2) {
       setCount(3)
     }
   }
