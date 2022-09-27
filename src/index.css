@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*, h1, h2 ,h3,h4 ,h5 ,h6, p, a , label, input, ::placeholder {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --accent: #d1408a
+}
+
+.bg_pink {
+  background-color: var(--accent);
+}
+
+/*
+  UTILITY CLASSES
+*/
+
+
+
+/* */
+
+/*
+  STYLIING
+*/
+
+body {
+  background: radial-gradient(#c9408d, #51479b) no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+}
+
+.form {
+  width: 400px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+}
+
+.progress__bar {
+  align-items: center;
+}
+.progess_block {
+  width: 28px;
+  height: 28px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.progress_line {
+  width: 40px;
+  height: 2px;
+  background-color: black;
+}
+
+.active:after {
+  content: '✓';
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  font-size: 18px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(245, 90, 90);
+  border-radius: 50%;
+  border: none !important;
+}
+.active__line {
+  background-color: rgb(245, 90, 90);
+}
+input {
+  transition: ease-in all 0.5s;
+}
+input:active, input:focus {
+  outline: none;
+}
+input:invalid {
+  box-shadow:inset 0px 0px 1px rgb(255, 143, 143);
+  border-radius: 3px;
+  transition: ease-in all 0.4s
+}
+.btn_pri {
+  width: 48%;
+  padding: 0.38em;
+}
+.btn_pri:hover {
+  background-color: rgb(19, 18, 18);
+}
+.form-outer {
+  display: flex;
+  width: 400%; 
+}
+.btn {
+  transition: ease all 0.3s;
+}
+.btn:hover {
+  background-color: rgb(19, 18, 18);
+}
+.form-page {
+  width: 25%
+}
+/* */
