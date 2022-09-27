@@ -1,7 +1,32 @@
 import React from 'react'
 
 const Form = () => {
+  let [count, setCount] = React.useState(0)
+
   let marginLeft = ""
+  if (count === 1) {
+    marginLeft = "-25%"
+  } else if (count === 2) {
+    marginLeft = "-50%"
+  } else if (count === 3) {
+    marginLeft = "-75%"
+  } else {
+    marginLeft = ""
+  }
+  
+  function increment() {
+    setCount(prevState => prevState + 1)
+    if (count > 3) {
+      setCount(3)
+    }
+  }
+  function decrement() {
+    setCount(prevState => prevState - 1)
+    if (count < 1) {
+      setCount(0)
+    }
+  }
+
   return (
     <>
       <div className='p-7 form pt-10 lg:pt-11'>
@@ -15,13 +40,13 @@ const Form = () => {
           <p>Submit</p>
         </div>
         <div className="progress__bar gap-1 mt-2 flex justify-center">
-          <div className='progess_block' data-step="1">1</div>
-          <div className='progress_line'></div>
-          <div className='progess_block'data-step="3">2</div>
-          <div className='progress_line'></div>
-          <div className='progess_block'>3</div>
-          <div className='progress_line'></div>
-          <div className='progess_block'>4</div>
+          <div className={`${count > 0 && "active"} progess_block`}>1</div>
+          <div className={`${count > 0 && "active__line"} progress_line`}></div>
+          <div className={`${count > 1 && "active"} progess_block`}>2</div>
+          <div className={`${count > 1 && "active__line"} progress_line`}></div>
+          <div className={`${count > 2 && "active"} progess_block`}>3</div>
+          <div className={`${count > 2 && "active__line"} progress_line`}></div>
+          <div className={`${count > 3 && "active"} progess_block`}>4</div>
         </div>
         <div class="mt-12">
           <form action="" className='overflow-hidden'>
@@ -29,47 +54,138 @@ const Form = () => {
               <div style={{marginLeft: marginLeft}} class={`form-field-1 form-page`}>
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>First Name</span>
-                <input pattern="[a-z]{3,}" className='pl-2 mb-3 w-full py-2 border' type="text" name="email-1" id="" />
+                <input 
+                  tabindex="-1" 
+                  pattern="[a-z]{3,}" 
+                  className='pl-2 mb-3 w-full py-2 border' 
+                  type="text" 
+                  name="email-1" 
+                  id="" 
+                />
                 <span className='mb-1 block'>Last Name</span>
-                <input pattern="[a-z]{3,}" className='pl-2 w-full py-2 border border-l-slate-200' type="text" name="" id="" />
+                <input 
+                  tabindex="-1"
+                  pattern="[a-z]{3,}" 
+                  className='pl-2 w-full py-2 border border-l-slate-200'
+                  type="text"
+                  name=""
+                  id="" 
+                />
                 <div className='flex justify-between mt-9'>
-                  <button type="button" className='py-2 btn w-full bg_pink text-xl font-medium text-white rounded'>Next</button>
+                  <button 
+                    onClick={increment} 
+                    tabindex="-1" 
+                    type="button" 
+                    className='py-2 btn w-full bg_pink text-xl font-medium text-white rounded'>
+                      Next
+                  </button>
                 </div>
               </div>
               <div class="form-field-2 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Email Address</span>
-                <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" className='pl-2 mb-3 w-full py-2 border' type="email" name="email-1" id="" />
+                <input 
+                  tabindex="-1" 
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                  className='pl-2 mb-3 w-full py-2 border' 
+                  type="email" 
+                  name="email-1" 
+                  id="" 
+                />
                 <span className='mb-1 block'>Phone Number</span>
-                <input pattern=".[0-9]{6,}" className='pl-2 w-full py-2 border border-l-slate-200' type="phone-1" name="" id="" />
+                <input 
+                 tabindex="-1" 
+                  pattern=".[0-9]{6,}" 
+                  className='pl-2 w-full py-2 border border-l-slate-200' 
+                  type="phone-1" 
+                  name="" 
+                  id="" 
+                />
                 <div className='flex justify-between mt-9'>
-                  <button type="button" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Previous</button>
-                  <button type="button" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Next</button>
+                  <button 
+                    onClick={decrement} type="button" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded'  
+                    tabindex="-1">
+                    Previous
+                  </button>
+                  <button 
+                    onClick={increment} 
+                    type="button" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded'  
+                    tabindex="-1">
+                    Next
+                  </button>
                 </div>
               </div>
-              <div class="form-field-1 form-page">
+              <div class="form-field-3 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
-                <span className='mb-1 block'>Email Address</span>
-                <input className='pl-2 mb-3 w-full py-2 border' type="date" name="email-1" id="" />
-                <span className='mb-1 block'>Phone Number</span>
-                <select className='pl-2 bg-white w-full py-2 border' name="" id="">
+                <span className='mb-1 block'  tabindex="-1">Date</span>
+                <input  
+                  tabindex="-1" 
+                  className='pl-2 mb-3 w-full py-2 border' 
+                  type="date" 
+                  name="email-1" 
+                  id="" 
+                />
+                  <span className='mb-1 block'  tabindex="-1">Gender</span>
+                  <select  
+                  tabindex="-1" 
+                  className='pl-2 bg-white w-full py-2 border' 
+                  name="" 
+                  id=""
+                >
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
                 <div className='flex justify-between mt-9'>
-                  <button type="button" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Previous</button>
-                  <button type="button" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Next</button>
+                  <button 
+                    onClick={decrement} 
+                    type="button" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded' 
+                    tabindex="-1">
+                    Previous
+                  </button>
+                  <button 
+                    onClick={increment} 
+                    type="button" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded' 
+                    tabindex="-1">
+                    Next
+                  </button>
                 </div>
               </div>
-              <div class="form-field-1 form-page">
+              <div class="form-field-4 form-page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Username</span>
-                <input className='pl-2 mb-3 w-full py-2 border' type="email" name="email-1" id="" />
+                <input 
+                  tabindex="-1" 
+                  className='pl-2 mb-3 w-full py-2 border' 
+                  type="email" 
+                  name="email-1" 
+                  id="" 
+                />
                 <span className='mb-1 block'>Password</span>
-                <input className='pl-2 w-full py-2 border border-l-slate-200' type="phone-1" name="" id="" />
+                <input 
+                  tabindex="-1" 
+                  className='pl-2 w-full py-2 border border-l-slate-200' 
+                  type="phone-1" 
+                  name="" 
+                  id="" 
+                />
                 <div className='flex justify-between mt-9'>
-                  <button type="button" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Previous</button>
-                  <button type="submit" className='btn_pri bg_pink text-xl font-medium text-white rounded'>Submit</button>
+                  <button 
+                    onClick={decrement} 
+                    type="button" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded'  
+                    tabindex="-1">
+                    Previous
+                  </button>
+                  <button 
+                    type="submit" 
+                    className='btn_pri bg_pink text-xl font-medium text-white rounded'  
+                    tabindex="-1">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>

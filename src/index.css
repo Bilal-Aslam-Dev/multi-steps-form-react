@@ -55,12 +55,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
   position: relative;
+  transition: ease 0.4s all;
 }
 .progress_line {
   width: 40px;
   height: 2px;
   background-color: black;
+  position: relative;
+  transition: ease-in-out 0.3s all;
+  transform-origin: left;
 }
 
 .active:after {
@@ -75,8 +80,18 @@ body {
   border-radius: 50%;
   border: none !important;
 }
+.progress_line:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  display: block;
+  background-color: red;
+  transform: scaleX(0);
+}
 .active__line {
   background-color: rgb(245, 90, 90);
+  transform: scale(1);
 }
 input {
   transition: ease-in all 0.5s;
@@ -92,6 +107,8 @@ input:invalid {
 .btn_pri {
   width: 48%;
   padding: 0.38em;
+  font-size: 14px;
+  transition: 0.35s ease-in all
 }
 .btn_pri:hover {
   background-color: rgb(19, 18, 18);
@@ -101,12 +118,15 @@ input:invalid {
   width: 400%; 
 }
 .btn {
-  transition: ease all 0.3s;
+  transition: ease all 0.5s;
+  padding: 0.38em !important;
+  font-size: 14px;
 }
 .btn:hover {
   background-color: rgb(19, 18, 18);
 }
 .form-page {
-  width: 25%
+  width: 25%;
+  transition: ease 0.9s all;
 }
 /* */
