@@ -58,7 +58,6 @@ body {
   align-items: center;
   font-size: 12px;
   position: relative;
-  transition: ease 0.4s all;
   overflow: hidden;
 }
 .progress_line {
@@ -81,11 +80,11 @@ body {
   border-radius: 50%;
   transform: scalex(0);
   transform-origin: left;
-  transition: ease all 0.5s;
+  transition: 0.5s cubic-bezier(.87,2.84,0,.41) all;
 }
 .active:after {
   transform: scale(1) !important;
-  transition: 0.5s ease all;
+  transition: 0.5s cubic-bezier(.87,2.84,0,.41) all;
 }
 .progress_line:after {
   content: "";
