@@ -48,7 +48,6 @@ const Form = () => {
       setCount(0)
     }
   }
-  
   return (
     <>
       <div className='p-7 overflow-hidden form pt-10 lg:pt-11'>
@@ -99,10 +98,15 @@ const Form = () => {
                 />
                 <div className='flex justify-between mt-9'>
                   <button 
+                    disabled={formData.firstName && formData.lastName ? false : true}
                     onClick={increment} 
                     tabIndex="-1" 
                     type="button" 
-                    className='py-2 btn w-full bg_pink text-xl font-medium text-white rounded'>
+                    className='py-2 btn w-full bg_pink text-xl font-medium text-white rounded'
+                    style={{
+                      cursor: formData.firstName && formData.lastName ? "pointer" : "not-allowed",
+                    }}
+                    >
                       Next
                   </button>
                 </div>
@@ -119,6 +123,7 @@ const Form = () => {
                   onChange={handleChange}
                   value={formData.email} 
                   id="" 
+                  required
                 />
                 <span className='mb-1 block'>Phone Number</span>
                 <input 
@@ -139,10 +144,15 @@ const Form = () => {
                     Previous
                   </button>
                   <button 
+                    disabled={formData.phoneNumber && formData.email ? false : true}
                     onClick={increment} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabIndex="-1">
+                    tabIndex="-1"
+                    style={{
+                      cursor: formData.phoneNumber && formData.email ? "pointer" : "not-allowed",
+                    }}
+                    >
                     Next
                   </button>
                 </div>
@@ -180,10 +190,15 @@ const Form = () => {
                     Previous
                   </button>
                   <button 
+                    disabled={formData.date && formData.gender ? false : true}
                     onClick={increment} 
                     type="button" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded' 
-                    tabIndex="-1">
+                    tabIndex="-1"
+                    style={{
+                      cursor: formData.date && formData.gender ? "pointer" : "not-allowed"
+                    }}
+                    >
                     Next
                   </button>
                 </div>
@@ -219,9 +234,14 @@ const Form = () => {
                     Previous
                   </button>
                   <button 
+                    disabled={formData.username && formData.password ? false : true}
                     type="submit" 
                     className='btn_pri bg_pink text-xl font-medium text-white rounded'  
-                    tabIndex="-1">
+                    tabIndex="-1"
+                    style={{
+                      cursor: formData.username && formData.password ? "pointer" : "not-allowed"
+                    }}
+                    >
                     Submit
                   </button>
                 </div>
