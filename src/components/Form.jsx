@@ -1,7 +1,29 @@
 import React from 'react'
 
 const Form = () => {
-  let [count, setCount] = React.useState(0)
+  const [count, setCount] = React.useState(0)
+  const [formData, setFormData] = React.useState(
+    {
+        firstName: "", 
+        lastName: "", 
+        email: "", 
+        phoneNumber: "", 
+        date: "",
+        gender: "",
+        username: "",
+        password: ""
+    }
+  )
+
+  function handleChange(event) {
+    const {name, value} = event.target
+    setFormData(prevFormData => {
+        return {
+            ...prevFormData,
+            [name]: value
+        }
+    })
+  }
 
   let marginLeft = ""
   if (count === 1) {
@@ -26,10 +48,10 @@ const Form = () => {
       setCount(0)
     }
   }
-
+  
   return (
     <>
-      <div className='p-7 form pt-10 lg:pt-11'>
+      <div className='p-7 overflow-hidden form pt-10 lg:pt-11'>
         <div>
           <h1 className='text-center text-4xl font-semibold'>Signup Form</h1>
         </div>
@@ -50,8 +72,8 @@ const Form = () => {
         </div>
         <div className="mt-12">
           <form action="" className='overflow-hidden'>
-            <div className="font-fields form-outer">
-              <div style={{marginLeft: marginLeft}} className={`form-field-1 form-page`}>
+            <div className="font-fields form__wrapper">
+              <div style={{marginLeft: marginLeft}} className={`form-field-1 field__page`}>
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>First Name</span>
                 <input 
@@ -59,7 +81,9 @@ const Form = () => {
                   pattern="[a-z]{3,}" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="text" 
-                  name="email-1" 
+                  name="firstName"
+                  onChange={handleChange}
+                  value={formData.firstName}
                   id=""
                 />
                 <span className='mb-1 block'>Last Name</span>
@@ -68,7 +92,9 @@ const Form = () => {
                   pattern="[a-z]{3,}" 
                   className='pl-2 w-full py-2 border border-l-slate-200'
                   type="text"
-                  name=""
+                  name="lastName"
+                  onChange={handleChange}
+                  value={formData.lastName}
                   id="" 
                 />
                 <div className='flex justify-between mt-9'>
@@ -81,7 +107,7 @@ const Form = () => {
                   </button>
                 </div>
               </div>
-              <div className="form-field-2 form-page">
+              <div className="form-field-2 field__page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Email Address</span>
                 <input 
@@ -89,16 +115,20 @@ const Form = () => {
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="email" 
-                  name="email-1" 
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email} 
                   id="" 
                 />
                 <span className='mb-1 block'>Phone Number</span>
                 <input 
-                 tabIndex="-1" 
+                  tabIndex="-1" 
                   pattern=".[0-9]{6,}" 
                   className='pl-2 w-full py-2 border border-l-slate-200' 
                   type="phone-1" 
-                  name="" 
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={formData.phoneNumber}
                   id="" 
                 />
                 <div className='flex justify-between mt-9'>
@@ -117,21 +147,25 @@ const Form = () => {
                   </button>
                 </div>
               </div>
-              <div className="form-field-3 form-page">
+              <div className="form-field-3 field__page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'  tabIndex="-1">Date</span>
                 <input  
                   tabIndex="-1" 
                   className='pl-2 mb-3 w-full py-2 border' 
                   type="date" 
-                  name="email-1" 
+                  name="date"
+                  onChange={handleChange}
+                  value={formData.date} 
                   id="" 
                 />
-                  <span className='mb-1 block'  tabIndex="-1">Gender</span>
-                  <select  
+                <span className='mb-1 block'  tabIndex="-1">Gender</span>
+                <select  
                   tabIndex="-1" 
                   className='pl-2 bg-white w-full py-2 border' 
-                  name="" 
+                  name="gender"
+                  onChange={handleChange}
+                  value={formData.gender}
                   id=""
                 >
                   <option value="male">Male</option>
@@ -154,14 +188,16 @@ const Form = () => {
                   </button>
                 </div>
               </div>
-              <div className="form-field-4 form-page">
+              <div className="form-field-4 field__page">
                 <h2 className='text-xl font-medium mb-5'>Contact Info:</h2>
                 <span className='mb-1 block'>Username</span>
                 <input 
                   tabIndex="-1" 
                   className='pl-2 mb-3 w-full py-2 border' 
-                  type="email" 
-                  name="email-1" 
+                  type="text" 
+                  name="username"
+                  onChange={handleChange}
+                  value={formData.username}
                   id="" 
                 />
                 <span className='mb-1 block'>Password</span>
@@ -169,7 +205,9 @@ const Form = () => {
                   tabIndex="-1" 
                   className='pl-2 w-full py-2 border border-l-slate-200' 
                   type="phone-1" 
-                  name="" 
+                  name="password"
+                  onChange={handleChange}
+                  value={formData.password}
                   id="" 
                 />
                 <div className='flex justify-between mt-9'>
